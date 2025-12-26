@@ -1,10 +1,17 @@
 import { gateway } from "@ai-sdk/gateway";
+import { createOpenAI } from "@ai-sdk/openai";
 import {
   customProvider,
   extractReasoningMiddleware,
   wrapLanguageModel,
 } from "ai";
 import { isTestEnvironment } from "../constants";
+
+// 1. 配置 DeepSeek，直接使用你的密钥
+const deepseekProvider = createOpenAI({
+  apiKey: "sk-297b6eda441749d9a475aff1dc5b6e18",
+  baseURL: "https://api.deepseek.com/v1",
+});
 
 const THINKING_SUFFIX_REGEX = /-thinking$/;
 
@@ -30,6 +37,12 @@ export const myProvider = isTestEnvironment
 export function getLanguageModel(modelId: string) {
   if (isTestEnvironment && myProvider) {
     return myProvider.languageModel(modelId);
+  }
+
+  // 2. 拦截 DeepSeek 请求，使用上面的配置
+  if (modelId.startsWith("deepseek/")) {
+    const actualModelId = modelId.split("/")[1];
+    return deepseekProvider(actualModelId);
   }
 
   const isReasoningModel =
