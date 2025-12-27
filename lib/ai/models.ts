@@ -9,7 +9,7 @@ export type ChatModel = {
 };
 
 export const chatModels: ChatModel[] = [
-  // DeepSeek (已设为默认)
+  // DeepSeek
   {
     id: "deepseek/deepseek-chat",
     name: "DeepSeek V3",
