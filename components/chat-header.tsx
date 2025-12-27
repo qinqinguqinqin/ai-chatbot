@@ -1,123 +1,61 @@
-{
-  "name": "ai-chatbot",
-  "version": "3.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbo",
-    "build": "tsx lib/db/migrate && next build",
-    "start": "next start",
-    "lint": "npx ultracite@latest check",
-    "format": "npx ultracite@latest fix",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "npx tsx lib/db/migrate.ts",
-    "db:studio": "drizzle-kit studio",
-    "db:push": "drizzle-kit push",
-    "db:pull": "drizzle-kit pull",
-    "db:check": "drizzle-kit check",
-    "db:up": "drizzle-kit up",
-    "test": "export PLAYWRIGHT=True && pnpm exec playwright test"
-  },
-  "dependencies": {
-    "@ai-sdk/gateway": "2.0.0-beta.85",
-    "@ai-sdk/openai": "latest",
-    "@ai-sdk/provider": "3.0.0-beta.27",
-    "@ai-sdk/react": "3.0.0-beta.162",
-    "@codemirror/lang-javascript": "^6.2.2",
-    "@codemirror/lang-python": "^6.1.6",
-    "@codemirror/state": "^6.5.0",
-    "@codemirror/theme-one-dark": "^6.1.2",
-    "@codemirror/view": "^6.35.3",
-    "@icons-pack/react-simple-icons": "^13.7.0",
-    "@opentelemetry/api": "^1.9.0",
-    "@opentelemetry/api-logs": "^0.200.0",
-    "@radix-ui/react-collapsible": "^1.1.12",
-    "@radix-ui/react-dialog": "^1.1.15",
-    "@radix-ui/react-dropdown-menu": "^2.1.16",
-    "@radix-ui/react-hover-card": "^1.1.15",
-    "@radix-ui/react-icons": "^1.3.0",
-    "@radix-ui/react-progress": "^1.1.8",
-    "@radix-ui/react-scroll-area": "^1.2.10",
-    "@radix-ui/react-select": "^2.2.6",
-    "@radix-ui/react-separator": "^1.1.8",
-    "@radix-ui/react-slot": "^1.2.4",
-    "@radix-ui/react-tooltip": "^1.2.8",
-    "@radix-ui/react-use-controllable-state": "^1.2.2",
-    "@radix-ui/react-visually-hidden": "^1.1.0",
-    "@vercel/analytics": "^1.3.1",
-    "@vercel/blob": "^0.24.1",
-    "@vercel/functions": "^2.0.0",
-    "@vercel/otel": "^1.12.0",
-    "@xyflow/react": "^12.10.0",
-    "ai": "6.0.0-beta.159",
-    "bcrypt-ts": "^5.0.2",
-    "class-variance-authority": "^0.7.1",
-    "classnames": "^2.5.1",
-    "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
-    "codemirror": "^6.0.1",
-    "date-fns": "^4.1.0",
-    "diff-match-patch": "^1.0.5",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.34.0",
-    "embla-carousel-react": "^8.6.0",
-    "fast-deep-equal": "^3.1.3",
-    "framer-motion": "^11.3.19",
-    "geist": "^1.3.1",
-    "katex": "^0.16.25",
-    "lucide-react": "^0.446.0",
-    "motion": "^12.23.26",
-    "nanoid": "^5.1.3",
-    "next": "16.0.10",
-    "next-auth": "5.0.0-beta.25",
-    "next-themes": "^0.3.0",
-    "orderedmap": "^2.1.1",
-    "papaparse": "^5.5.2",
-    "postgres": "^3.4.4",
-    "prosemirror-example-setup": "^1.2.3",
-    "prosemirror-inputrules": "^1.4.0",
-    "prosemirror-markdown": "^1.13.1",
-    "prosemirror-model": "^1.23.0",
-    "prosemirror-schema-basic": "^1.2.3",
-    "prosemirror-schema-list": "^1.4.1",
-    "prosemirror-state": "^1.4.3",
-    "prosemirror-view": "^1.34.3",
-    "radix-ui": "^1.4.3",
-    "react": "19.0.1",
-    "react-data-grid": "7.0.0-beta.47",
-    "react-dom": "19.0.1",
-    "react-resizable-panels": "^2.1.7",
-    "react-syntax-highlighter": "^15.6.6",
-    "redis": "^5.0.0",
-    "resumable-stream": "^2.0.0",
-    "server-only": "^0.0.1",
-    "shiki": "^3.14.0",
-    "sonner": "^1.5.0",
-    "streamdown": "^1.4.0",
-    "swr": "^2.2.5",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
-    "use-stick-to-bottom": "^1.1.1",
-    "usehooks-ts": "^3.1.0",
-    "zod": "^3.25.76"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.2.2",
-    "@playwright/test": "^1.50.1",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@tailwindcss/typography": "^0.5.15",
-    "@types/d3-scale": "^4.0.8",
-    "@types/node": "^22.8.6",
-    "@types/papaparse": "^5.3.15",
-    "@types/pdf-parse": "^1.1.4",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/react-syntax-highlighter": "^15.5.13",
-    "drizzle-kit": "^0.25.0",
-    "postcss": "^8",
-    "tailwindcss": "^4.1.13",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.3",
-    "ultracite": "5.3.9"
-  },
-  "packageManager": "pnpm@9.12.3"
+"use client";
+
+import { useRouter } from "next/navigation";
+import { memo } from "react";
+import { useWindowSize } from "usehooks-ts";
+import { SidebarToggle } from "@/components/sidebar-toggle";
+import { Button } from "@/components/ui/button";
+import { PlusIcon } from "./icons";
+import { useSidebar } from "./ui/sidebar";
+import { VisibilitySelector, type VisibilityType } from "./visibility-selector";
+
+function PureChatHeader({
+  chatId,
+  selectedVisibilityType,
+  isReadonly,
+}: {
+  chatId: string;
+  selectedVisibilityType: VisibilityType;
+  isReadonly: boolean;
+}) {
+  const router = useRouter();
+  const { open } = useSidebar();
+
+  const { width: windowWidth } = useWindowSize();
+
+  return (
+    <header className="sticky top-0 flex items-center gap-2 bg-background px-2 py-1.5 md:px-2">
+      <SidebarToggle />
+
+      {(!open || windowWidth < 768) && (
+        <Button
+          className="order-2 ml-auto h-8 px-2 md:order-1 md:ml-0 md:h-fit md:px-2"
+          onClick={() => {
+            router.push("/");
+            router.refresh();
+          }}
+          variant="outline"
+        >
+          <PlusIcon />
+          <span className="md:sr-only">New Chat</span>
+        </Button>
+      )}
+
+      {!isReadonly && (
+        <VisibilitySelector
+          chatId={chatId}
+          className="order-1 md:order-2"
+          selectedVisibilityType={selectedVisibilityType}
+        />
+      )}
+    </header>
+  );
 }
+
+export const ChatHeader = memo(PureChatHeader, (prevProps, nextProps) => {
+  return (
+    prevProps.chatId === nextProps.chatId &&
+    prevProps.selectedVisibilityType === nextProps.selectedVisibilityType &&
+    prevProps.isReadonly === nextProps.isReadonly
+  );
+});
