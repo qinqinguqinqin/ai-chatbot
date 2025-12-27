@@ -7,7 +7,7 @@ import {
 } from "ai";
 import { isTestEnvironment } from "../constants";
 
-// 1. 配置 DeepSeek，直接使用你的密钥
+// 1. 配置 DeepSeek (已填入你的密钥)
 const deepseekProvider = createOpenAI({
   apiKey: "sk-297b6eda441749d9a475aff1dc5b6e18",
   baseURL: "https://api.deepseek.com/v1",
