@@ -7,7 +7,6 @@ import {
 } from "ai";
 import { isTestEnvironment } from "../constants";
 
-// 1. 配置 DeepSeek (已填入你的密钥)
 const deepseekProvider = createOpenAI({
   apiKey: "sk-297b6eda441749d9a475aff1dc5b6e18",
   baseURL: "https://api.deepseek.com/v1",
@@ -39,7 +38,6 @@ export function getLanguageModel(modelId: string) {
     return myProvider.languageModel(modelId);
   }
 
-  // 2. 拦截 DeepSeek 请求
   if (modelId.startsWith("deepseek/")) {
     const actualModelId = modelId.split("/")[1];
     return deepseekProvider(actualModelId);
@@ -64,12 +62,12 @@ export function getTitleModel() {
   if (isTestEnvironment && myProvider) {
     return myProvider.languageModel("title-model");
   }
-  return gateway.languageModel("anthropic/claude-haiku-4.5");
+  return gateway.languageModel("google/gemini-2.5-flash-lite");
 }
 
 export function getArtifactModel() {
   if (isTestEnvironment && myProvider) {
     return myProvider.languageModel("artifact-model");
   }
-  return gateway.languageModel("anthropic/claude-haiku-4.5");
+  return gateway.languageModel("google/gemini-2.5-flash-lite");
 }
