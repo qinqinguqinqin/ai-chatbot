@@ -39,7 +39,7 @@ export function getLanguageModel(modelId: string) {
     return myProvider.languageModel(modelId);
   }
 
-  // 2. 拦截 DeepSeek 请求，使用上面的配置
+  // 2. 拦截 DeepSeek 请求
   if (modelId.startsWith("deepseek/")) {
     const actualModelId = modelId.split("/")[1];
     return deepseekProvider(actualModelId);
