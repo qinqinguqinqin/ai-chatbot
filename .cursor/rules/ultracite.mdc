@@ -21,7 +21,7 @@ Ultracite enforces strict type safety, accessibility standards, and consistent c
 
 ## Rules
 
-### Accessibility (a11y)
+###  Accessibility (a11y)
 - Don't use `accessKey` attribute on any HTML element.
 - Don't set `aria-hidden="true"` on focusable elements.
 - Don't add ARIA roles, states, and properties to elements that don't support them.
