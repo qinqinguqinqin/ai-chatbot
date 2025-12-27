@@ -1,4 +1,3 @@
-// Curated list of top models from Vercel AI Gateway
 export const DEFAULT_CHAT_MODEL = "deepseek/deepseek-chat";
 
 export type ChatModel = {
@@ -9,7 +8,6 @@ export type ChatModel = {
 };
 
 export const chatModels: ChatModel[] = [
-  // DeepSeek
   {
     id: "deepseek/deepseek-chat",
     name: "DeepSeek V3",
@@ -22,14 +20,12 @@ export const chatModels: ChatModel[] = [
     provider: "deepseek",
     description: "Reasoning model for complex logic",
   },
-  // OpenAI
   {
     id: "openai/gpt-4.1-mini",
     name: "GPT-4.1 Mini",
     provider: "openai",
     description: "Fast and cost-effective for simple tasks",
   },
-  // Google
   {
     id: "google/gemini-2.5-flash-lite",
     name: "Gemini 2.5 Flash Lite",
